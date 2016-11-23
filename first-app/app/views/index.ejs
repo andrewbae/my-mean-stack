@@ -4,7 +4,16 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= message %></h1>
     <img src="img/main_logo.png" />
+
+    <h2>signed user : <%= userFullName %></h2>
+
+    <% if (isLogin) { %>
+      <a href="/signout">sign out</a>
+    <% } else { %>
+      <a href="/signup">sign up</a>
+      <a href="/signin">sign in</a>
+    <% } %>
+    
   </body>
 </html>

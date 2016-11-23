@@ -4,7 +4,9 @@ var config = require('./config'), // config
   compress = require('compression'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
-  session = require('express-session');
+  session = require('express-session'),
+  flash = require('connect-flash'),
+  passport = require('passport');
 
 module.exports = function() {
   // 웹서버 미들웨어
@@ -37,6 +39,13 @@ module.exports = function() {
   // 뷰
   app.set('views', './app/views');
   app.set('view engine', 'ejs');
+
+  // connect-flash
+  app.use(flash());
+  
+  // passport
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   // 라우팅
   require('../app/routes/index.server.routes.js')(app);

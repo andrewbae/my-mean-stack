@@ -1,4 +1,4 @@
 module.exports = {
-  db: 'mongodb://localhost/mean_test',
+  db: 'mongodb://localhost/mean-test',
   sessionSecret: 'developmentSessionSecret'
 };
