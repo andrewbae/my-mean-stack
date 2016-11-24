@@ -34,7 +34,7 @@ module.exports = function() {
     saveUninitialized: true,
     resave: true,
     secret: config.sessionSecret
-  }))
+  }));
 
   // 뷰
   app.set('views', './app/views');
@@ -42,7 +42,7 @@ module.exports = function() {
 
   // connect-flash
   app.use(flash());
-  
+
   // passport
   app.use(passport.initialize());
   app.use(passport.session());
@@ -50,6 +50,7 @@ module.exports = function() {
   // 라우팅
   require('../app/routes/index.server.routes.js')(app);
   require('../app/routes/users.server.routes.js')(app);
+  require('../app/routes/articles.server.routes.js')(app);
 
   // 정적파일 경로
   app.use(express.static('./public'));

@@ -7,6 +7,7 @@ module.exports = function() {
 
   // 모델 읽기
   require('../app/models/user.server.model');
+  require('../app/models/article.server.model');
 
   return db;
 };

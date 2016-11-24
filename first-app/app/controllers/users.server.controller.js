@@ -24,6 +24,16 @@ var getErrorMessage = function(err) {
   }
 };
 
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not signed in'
+    });
+  }
+  next();
+};
+
+// 로그인 페이지
 exports.renderSignin = function(req, res, next) {
   if (!req.user) {
     res.render('signin', {
@@ -35,6 +45,7 @@ exports.renderSignin = function(req, res, next) {
   }
 };
 
+// 가입 페이지
 exports.renderSignup = function(req, res, next) {
   if (!req.user) {
     res.render('signup', {
@@ -46,6 +57,7 @@ exports.renderSignup = function(req, res, next) {
   }
 };
 
+// 로그인 처리
 exports.signup = function(req, res, next) {
   if (!req.user) {
     var user = new User(req.body),
@@ -72,6 +84,7 @@ exports.signup = function(req, res, next) {
   }
 };
 
+// 로그아웃
 exports.signout = function(req, res) {
   req.logout();
   res.redirect('/');
