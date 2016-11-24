@@ -1,0 +1,27 @@
+{
+  "name": "node_first",
+  "description": "my first node project",
+  "main": "server.js",
+  "authors": [
+    "andrew bae"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "angularjs",
+    "express"
+  ],
+  "homepage": "https://github.com/andrewbae/my-mean-stack",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
